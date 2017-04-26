@@ -1,9 +1,9 @@
-<h2><%= @name %></h2>
+<h2><%= @tamagotchi.name %></h2>
 
-<h4>Food level: <%= @fed %></h4>
-<h4>Activity level: <%= @happy %></h4>
-<h4>Sleep level: <%= @energy %></h4>
-<form action="/play" method="post">
+<h4>Food level: <%= @tamagotchi.food_level %></h4>
+<h4>Activity level: <%= @tamagotchi.activity_level %></h4>
+<h4>Sleep level: <%= @tamagotchi.sleep_level %></h4>
+<form action="/play/<%= @tamagotchi.id() %>" method="post">
   <div class="form-group">
     <button type="submit" class="btn-primary" name="commit" value="status">Status</button>
     <button type="submit" class="btn-success" name="commit" value="feed">Feed</button>

@@ -1,5 +1,4 @@
 
-
 class Tamagotchi
   @@tamagotchis = []
 
@@ -8,7 +7,7 @@ class Tamagotchi
     @food_level = 10
     @sleep_level = 10
     @activity_level = 10
-    @id = @@tamagotchis.length().+(1)
+    @id = @@tamagotchis.length
     @time = Time.now().min()
     @stopwatch = 0
   end
@@ -16,6 +15,7 @@ class Tamagotchi
   def id
     @id
   end
+
   def name
     @name
   end
@@ -37,21 +37,15 @@ class Tamagotchi
   end
 
   define_method(:save) do
-   @@tamagotchis.push(self)
- end
+    @@tamagotchis.push(self)
+  end
 
- define_singleton_method(:clear) do
-  @@tamagotchis = []
-end
+  define_singleton_method(:clear) do
+    @@tamagotchis = []
+  end
 
-define_singleton_method(:find) do |identification|
-    found_tamagotchi = nil
-    @@tamagotchis.each() do |tamagotchi|
-      if tamagotchi.id().eql?(identification.to_i())
-        found_tamagotchi = tamagotchi
-      end
-    end
-    found_tamagotchi
+  define_singleton_method(:find) do |identification|
+    @@tamagotchis[identification.to_i]
   end
 
   def is_alive?
